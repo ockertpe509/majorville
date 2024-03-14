@@ -22,14 +22,16 @@
         display: grid;
         min-height: 100vh;
         min-height: 100dvh;
-        grid-template-columns: 3fr 2fr;
-        grid-template-rows: auto auto auto auto 1fr auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto;
         /* gap: 0.5rem; */
         grid-template-areas: 
-        "header header"
-        "nav nav"
-        "main main"
-        "footer footer";
+        "header"
+        "left"
+        "right"
+        "nav"
+        "main"
+        "footer";
     }
 
     .item {
@@ -40,25 +42,24 @@
     .ul-margin, .ol-margin {
         margin: 1rem 0 1rem 1rem;
         list-style-type: none;
-        border: 4px solid #333;
+        /* border: 4px solid #333; */
         text-align: right;
     }
 
     .left {
         grid-area: left;
-        background-color:#00279a;
+        background-color:#9a4a00;
         padding: 5px;
-    
     }
 
     .right {
         grid-area: right;
-        background-color:#00279a;
+        background-color:#9a4a00;
     }
     
     header {
         grid-area: header;
-        background-color: #00279a;
+        background-color: #9a4a00;
         color: rgb(0, 0, 0);
         background-image: url(Screenshot\ 2024-03-11\ 123634\(1\).png);
 
@@ -73,13 +74,52 @@
 
     .main-content {
         grid-area: main;
-        background-color: #8f89ff;
+        background-color: #ffc689;
         color: rgb(0, 0, 0);
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        grid-template-areas: 
+            "mc-info"
+            "right-lake"
+            "right-lake-text"
+            "left-lake"
+            "left-lake-text"
+            "footer";
+        gap: 10px;
+    }
+
+    .right-lake {
+        grid-area: right-lake;
+        background-color: #3db8af;
+    }
+
+    .left-lake {
+        grid-area: left-lake;
+        background-color: #ec1db2;
+    }
+
+    .right-lake-text {
+        grid-area: right-lake-text;
+        background-color: #7ee081;
+        padding: 10px;
+    }
+
+    .left-lake-text {
+        grid-area: left-lake-text;
+        background-color: #568db4;
+        padding: 10px;
+    }
+
+    .mc-info {
+        grid-area: mc-info;
+        background-color: #ee664b;
     }
 
     footer {
         grid-area: footer;
-        background-color: #00279a;
+        background-color: #9a4a00;
         color: white;
     }
 
@@ -92,7 +132,7 @@
     }
 
     .nav a {
-        background-color: #00279a;
+        background-color: #9a4a00;
         display: block;
         text-decoration: none;
         text-align: center;
@@ -128,20 +168,31 @@
         "footer footer footer footer footer";
     }
 
+    .main-content {
+       
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: auto auto auto;
+        grid-template-areas: 
+            "mc-info mc-info"
+            "right-lake right-lake-text"
+            "left-lake-text left-lake";
+        gap: 10px;
+    }
+
     .nav ul {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    /* gap: 0.5rem; */
-    list-style: none;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        /* gap: 0.5rem; */
+        list-style: none;
     }
 
     .nav a {
-    padding: 0.75rem;    
+        padding: 0.75rem;    
     }
 
     .nav a:hover {
-    background-color: rgb(81, 33, 255);
-    color: #ffffff;
+        background-color: rgb(255, 196, 33);
+        color: #ffffff;
     }
     }
 </style>
@@ -155,24 +206,32 @@
         <header class = "item"><h1>Majorville</h1> </header>
         <nav class="item nav">
             <ul>
-                <li><a style="background-color:rgb(0, 6, 70)" href="index.html">Home</a></li>
-                <li><a href="edited.html">Info</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a style="background-color:rgb(95, 57, 0)" href="edited.html">Info</a></li>
                 <li><a href="events.html">Events</a></li>
-              
+                
             </ul>
     
         </nav>
+ 
         <main class="item main-content">
-            <h1>Description</h1>
-            <ul class="ul-margin">
-                <div style="margin:0px 2000px -364px 0px; "><img class="Logo" src="mville.jpg" alt="Logo" width="550" height="350"></div>
-                <br>
-                <h2 style="margin:0px 225px 0px 0px; " >Who:</h2> <li> <h3 style="margin:0px 20px 0px 0px;"> Chamber of Commerce in Majorville, Michigan </h3></li><br>
-                <h2 style="margin:0px 225px 0px 0px;">What:</h2> <li> <h3 style="margin:0px 130px 0px 0px;">Summer Solstice Festival</h3></li><br>
-                <h2 style="margin:0px 225px 0px 0px;">Where:</h2> <li>  <h3 style="margin:0px 80px 0px 0px;">Woodward Farm in Majorville, MI</h3></li><br>
-                <h2 style="margin:0px 225px 0px 0px;">When:</h2> <li><h3 style="margin:0px 60px 0px 0px;">Thursday, June 20, 2024 from 11am-10pm</h3></li>
-                <br>
-            </ul>
+           
+          <div class="mc-info"> <h1>Information</h1></div>
+
+            <div class="right-lake">
+                
+                <img src="lake.jpg" alt="Lake Michigan right">
+            </div>
+            <div class="right-lake-text"><p>Right lake text.</p></div>
+
+
+            <div class="left-lake"><img src="lake2.jpg" alt="Lake Michigan left"></div>
+
+            <div class="left-lake-text"><p>Left lake text.</p></div>
+
+
+
+         
         </main>
         <footer class = "item footer"><p>Copyright &copy; 20XX by Career Tech</p></footer>
     </div>
