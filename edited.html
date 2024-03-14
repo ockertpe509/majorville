@@ -97,13 +97,16 @@
     }
 
     .right-lake {
+        display: grid;
         grid-area: right-lake;
         background-color: #3db8af;
+        justify-items: end;
     }
 
     .left-lake {
         grid-area: left-lake;
         background-color: #ec1db2;
+        justify-items: start;
     }
 
     .right-lake-text {
@@ -177,13 +180,14 @@
 
     .main-content {
        
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: repeat(2, 30rem);
         grid-template-rows: auto auto auto;
         grid-template-areas: 
             "mc-info mc-info"
             "right-lake right-lake-text"
             "left-lake-text left-lake";
         gap: 10px;
+        margin: 0 auto;
     }
 
     .nav ul {
@@ -200,6 +204,28 @@
     .nav a:hover {
         background-color: rgb(255, 196, 33);
         color: #ffffff;
+    }
+
+    .left-lake {
+        grid-area: left-lake;
+   
+        background-color: #ec1db2;
+        justify-items: center;
+
+    }
+
+    .right-lake {
+        display: grid;
+        grid-area: right-lake;
+
+        background-color: #3db8af;
+        justify-items: center;
+    }
+
+    img {
+        height: 100%;
+        max-width: 100%;
+        object-fit: contain;
     }
     }
 </style>
